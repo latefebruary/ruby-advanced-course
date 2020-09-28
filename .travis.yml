@@ -7,3 +7,4 @@ cache:
 
 script:
   - bundle exec rspec
+  - bundle exec rubocop

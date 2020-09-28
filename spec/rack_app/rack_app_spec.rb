@@ -1,7 +1,7 @@
 require './rack_app/rack_app'
 
 RSpec.describe RackApp, 'test' do
-  subject { RackApp.new }
+  subject { described_class.new }
 
   it 'checks rack_app response is valid' do
     response = subject.call('')
