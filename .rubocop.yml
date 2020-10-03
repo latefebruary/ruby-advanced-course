@@ -10,6 +10,9 @@ Style/Documentation:
 Metrics/MethodLength:
   Max: 12
 
+Style/NumericPredicate:
+  Enabled: false
+
 Layout/BeginEndAlignment:
   Enabled: true
 Layout/EmptyLinesAroundAttributeAccessor:
