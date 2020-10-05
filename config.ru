@@ -3,12 +3,14 @@ require 'bundler'
 Bundler.require
 
 require './rack_app'
-require './rack_app/static'
-require './rack_app/exception_handler'
-require './rack_app/logger'
+require './middleware/static'
+require './middleware/exception_handler'
+require './middleware/logger'
+require './middleware/show_errors'
 
 use Rack::Reloader
-use RackApp::Logger
-use RackApp::ExceptionHandler
-use RackApp::Static
+use Middleware::Logger
+use Middleware::ShowErrors
+use Middleware::ExceptionHandler
+use Middleware::Static
 run RackApp.new

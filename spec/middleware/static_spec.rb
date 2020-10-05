@@ -1,8 +1,8 @@
-require './rack_app/static'
+require './middleware/static'
 require './rack_app'
 
-RSpec.describe RackApp::Static, 'test' do
-  let(:app) { RackApp.new }
+RSpec.describe Middleware::Static, 'test' do
+  let(:app) { ->(_) { [200, {}, []] } }
   let(:env) do
     {
       'PATH_INFO' => '/public/EHdvu.jpeg',
@@ -15,7 +15,7 @@ RSpec.describe RackApp::Static, 'test' do
       'REQUEST_METHOD' => 'GET'
     }
   end
-  subject { RackApp::Static.new(app) }
+  subject { Middleware::Static.new(app) }
 
   it 'checks static file is returned' do
     response = subject.call(env)
@@ -29,6 +29,5 @@ RSpec.describe RackApp::Static, 'test' do
 
     expect(response[0]).to eq(200)
     expect(response[1]).to eq({})
-    expect(response[2]).to eq(['Hello world'])
   end
 end

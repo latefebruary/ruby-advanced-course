@@ -1,6 +1,6 @@
 require 'rack'
 
-class RackApp
+class Middleware
   class Static
     URL = '/public'.freeze
 
@@ -18,7 +18,6 @@ class RackApp
 
       if can_serve(path)
         @file_server.call(env)
-
       else
         @app.call(env)
       end

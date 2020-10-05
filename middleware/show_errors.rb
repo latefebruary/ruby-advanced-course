@@ -1,7 +1,7 @@
 require 'rack'
 
-class RackApp
-  class ExceptionHandler
+class Middleware
+  class ShowErrors
     STATUS_CODES = [404, 500].freeze
 
     def initialize(app)
@@ -10,8 +10,8 @@ class RackApp
     end
 
     def call(env)
-      response = @app.call(env)
-      code = response[0]
+      code, = response = @app.call(env)
+      # code = response[0]
 
       if STATUS_CODES.include? code
         env.merge!('OLD_PATH_INFO' => env['PATH_INFO'])
