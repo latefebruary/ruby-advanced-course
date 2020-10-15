@@ -4,11 +4,18 @@ Style/FrozenStringLiteralComment:
 Metrics/LineLength:
   Max: 120
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
 Style/Documentation:
   Enabled: false
 
 Metrics/MethodLength:
   Max: 12
+
+Style/NumericPredicate:
+  Enabled: false
 
 Layout/BeginEndAlignment:
   Enabled: true
