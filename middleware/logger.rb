@@ -6,11 +6,10 @@ class Middleware
     def initialize(app)
       @app = app
       @logger = ::Logger.new($stdout)
+      @logger.level = ::Logger::INFO
     end
 
     def call(env)
-      @logger.level = ::Logger::INFO
-
       start_time = Process.clock_gettime(Process::CLOCK_MONOTONIC, :microsecond)
       response = @app.call(env)
       end_time = Process.clock_gettime(Process::CLOCK_MONOTONIC, :microsecond)

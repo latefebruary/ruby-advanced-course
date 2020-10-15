@@ -11,7 +11,6 @@ class Middleware
 
     def call(env)
       code, = response = @app.call(env)
-      # code = response[0]
 
       if STATUS_CODES.include? code
         env.merge!('OLD_PATH_INFO' => env['PATH_INFO'])

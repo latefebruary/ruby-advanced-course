@@ -2,8 +2,6 @@ require 'rack'
 
 class Middleware
   class ExceptionHandler
-    STATUS_CODES = [404, 500].freeze
-
     def initialize(app)
       @app = app
       @logger = ::Logger.new($stdout)
